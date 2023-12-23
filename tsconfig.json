@@ -30,7 +30,9 @@
     "strict": true,
     "target": "ES2021",
     "tsBuildInfoFile": "dist/.tsbuildinfo",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    // Other options...
+    "types": ["express"]
   },
   "include": ["src"]
 }

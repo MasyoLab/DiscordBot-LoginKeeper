@@ -1,6 +1,9 @@
 import { Client } from 'discord.js';
 import config from './config';
+import express, { Response } from 'express';  // Import express and Response type
+
 const { intents, token, game_name } = config;
+const app = express();  // Use import to create the express app
 
 const client = new Client({
   intents,
@@ -17,12 +20,8 @@ client.on('ready', () => {
   console.log(`Logged in as: ${client.user?.tag}`);
 });
 
-// APIサーバー(Botのログイン維持に使う)
-const express = require("express");
-const app = express();
-
 // ルーティングの設定
-app.get("/", (req, res) => {
+app.get("/", (_: any, res: Response) => {  // Use Response type
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.json({});
 });
